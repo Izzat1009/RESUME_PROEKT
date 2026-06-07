@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izzatilla - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="./index.html" class="active">HOME</a></li>
+    <li><a href="#" class="open-modal" data-target="portfolio-modal">PORTFOLIO</a></li>
+    <li><a href="#" class="open-modal" data-target="resume-modal">RESUME</a></li>
+    <li><a href="#" class="open-modal" data-target="contact-modal">CONTACT</a></li>
+  </ul>
+</nav>
+
+<main class="hero-section">
+  <div class="hero-content">
+    <div class="profile-icon">
+      <i class="fas fa-user-code"></i>
+    </div>
+    <h1>Assalomu Alekum</h1>
+    <h1>Mani ismim Izzatilla</h1>
+    <p class="subtitle">IT FRONTEND DASTURCHI</p>
+    <p class="short-info">Malumotlarni Navbar qismidan ko'rib olishingiz mumkin.</p>
+  </div>
+</main>
+
+<div id="portfolio-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Texnologiyalar & Ko'nikmalar</h2>
+    <p class="modal-desc">Men loyihalarda quyidagi texnologiyalardan foydalanaman:</p>
+    
+    <div class="skills-list">
+      <span class="skill-item"><i class="fab fa-html5" style="color: #e34c26;"></i> HTML</span>
+      <span class="skill-item"><i class="fab fa-css3-alt" style="color: #264de4;"></i> CSS</span>
+      <span class="skill-item"><i class="fab fa-js-square" style="color: #f7df1e;"></i> JavaScript</span>
+      <span class="skill-item"><i class="fab fa-react" style="color: #61dbfb;"></i> React</span>
+      <span class="skill-item"><i class="fab fa-css3" style="color: #38bdf8;"></i> Tailwind CSS</span>
+      <span class="skill-item"><i class="fab fa-python" style="color: #306998;"></i> Python (Boshlang'ich)</span>
+    </div>
+
+    <div class="additional-info">
+      <h3><i class="fas fa-laptop-medical"></i> Qo'shimcha:</h3>
+      <p>Kompyuter komponentlari (apparat qismi) va ularning texnik xususiyatlarini juda yaxshi tushunaman.</p>
+    </div>
+  </div>
+</div>
+
+<div id="resume-modal" class="modal">
+  <div class="modal-content text-left">
+    <span class="close-btn">&times;</span>
+    <h2>Ma'lumot va Tajriba</h2>
+    
+    <div class="resume-section">
+      <h3><i class="fas fa-user"></i> Shaxsiy ma'lumotlar</h3>
+      <p><strong>Tug'ilgan yili:</strong> 2008-yil</p>
+      <p><strong>Tug'ilgan joyi:</strong> Toshkent shahri</p>
+      <p><strong>Yoshi:</strong> 18 yoshda</p>
+    </div>
+
+    <div class="resume-section">
+      <h3><i class="fas fa-graduation-cap"></i> O'qish</h3>
+      <p><strong>Maktab:</strong> Yaqinda maktabni tamomladim </p>
+      <p><strong>IT FRONTEND</strong> (Bitirgan yili: 2025)</p>
+    </div>
+
+    <div class="resume-section">
+      <h3><i class="fas fa-briefcase"></i> Ish tajribasi</h3>
+      <p>Hozircha amaliy ish tajribam yo'q. Bilimlarimni amaliyotda qo'llash va tajriba orttirish uchun Frontend dasturchi sifatida ilk jamoamni yoki loyihalarimni qidirmoqdaman.</p>
+    </div>
+  </div>
+</div>
+
+<div id="contact-modal" class="modal">
+  <div class="modal-content contact-box">
+    <span class="close-btn">&times;</span>
+    <h2>Men bilan bog'lanish</h2>
+    <p>Ijtimoiy tarmoqlar orqali xabar yuborishingiz mumkin:</p>
+    
+    <div class="modal-social-links">
+      <a href="https://t.me/+998879049005" target="_blank" class="social-btn telegram">
+        <i class="fab fa-telegram-plane"></i> Telegram
+      </a>
+      <a href="https://instagram.com/izvt77777" target="_blank" class="social-btn instagram">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://github.com/Izzat1009" target="_blank" class="social-btn github">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="mailto:izzatqosimov491@gmail.com" class="social-btn email">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const openButtons = document.querySelectorAll('.open-modal');
+  const closeButtons = document.querySelectorAll('.close-btn');
+  const body = document.body;
+
+  openButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault(); 
+      const targetId = button.getAttribute('data-target');
+      const modal = document.getElementById(targetId);
+      modal.classList.add('show');
+      body.classList.add('modal-open');
+    });
+  });
+
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.modal').classList.remove('show');
+      checkModals();
+    });
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+      e.target.classList.remove('show');
+      checkModals();
+    }
+  });
+
+  function checkModals() {
+    const anyOpen = document.querySelector('.modal.show');
+    if (!anyOpen) {
+      body.classList.remove('modal-open');
+    }
+  }
+</script>
+
+</body>
+</html>
