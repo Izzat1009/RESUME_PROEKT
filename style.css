@@ -15,7 +15,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 31, 63, 0.55), rgba(0, 31, 63, 0.75)), url('././image/backroundportfolio.webp');
+    background-image: linear-gradient(rgba(0, 31, 63, 0.55), rgba(0, 31, 63, 0.75)), url('./image/backroundportfolio.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -246,3 +246,73 @@ body.modal-open::before {
 .instagram { background-color: #e1306c; }
 .github { background-color: #24292e; }
 .email { background-color: #ea4335; }
+
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 38px;
+    }
+    .hero-section {
+        height: 65vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 10px;
+    }
+    .nav-links {
+        gap: 12px;
+    }
+    .nav-links li a {
+        font-size: 14px;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+    .subtitle {
+        font-size: 18px;
+    }
+    .short-info {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+    .profile-icon {
+        font-size: 55px;
+    }
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 5px;
+    }
+    .nav-links {
+        gap: 8px;
+    }
+    .nav-links li a {
+        font-size: 12px;
+    }
+    .hero-content h1 {
+        font-size: 26px;
+    }
+    .subtitle {
+        font-size: 16px;
+    }
+    .short-info {
+        font-size: 14px;
+    }
+    .profile-icon {
+        font-size: 45px;
+    }
+    .skills-list {
+        gap: 6px;
+    }
+    .skill-item {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
